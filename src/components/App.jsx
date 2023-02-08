@@ -1,18 +1,11 @@
-import user from 'user.json';
-import { Profile } from 'components/Profile/Profile';
+import user from '../user.json';
+import data from '../data.json';
+import Statistics from './Statistics/Statistics';
+import Profile from './Profile/Profile';
 
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    >
+    <div>
       <Profile
         username={user.username}
         tag={user.tag}
@@ -20,6 +13,7 @@ export const App = () => {
         avatar={user.avatar}
         stats={user.stats}
       />
+      <Statistics stats={data} />
     </div>
   );
 };
