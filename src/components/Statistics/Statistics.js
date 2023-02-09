@@ -6,12 +6,15 @@ export default function Statistics({ title, stats }) {
       {title && <h2 class="title">{title}</h2>}
 
       <ul class="stat-list">
-        {stats.map(({ id, label, percentage }) => (
-          <li class="item" key={id}>
-            <span class="label">{label}</span>
-            <span class="percentage">{percentage}%</span>
-          </li>
-        ))}
+        {stats.map(({ id, label, percentage }) => {
+          console.log(id);
+          return (
+            <li class="item" key={id}>
+              <span class="label">{label}</span>
+              <span class="percentage">{percentage}%</span>
+            </li>
+          );
+        })}
       </ul>
     </section>
   );
