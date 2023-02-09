@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export default function Statistics({ stats }) {
   return (
     <section class="statistics">
@@ -5,12 +7,18 @@ export default function Statistics({ stats }) {
 
       <ul class="stat-list">
         {stats.map(({ id, label, percentage }) => (
-          <li class="item">
+          <li class="item" key={id}>
             <span class="label">{label}</span>
-            <span class="percentage">{percentage}</span>
+            <span class="percentage">{percentage}%</span>
           </li>
         ))}
       </ul>
     </section>
   );
 }
+
+Statistics.propTypes = {
+  id: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  percentage: PropTypes.number.isRequired,
+};
