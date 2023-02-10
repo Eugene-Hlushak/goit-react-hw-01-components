@@ -7,7 +7,6 @@ export default function Statistics({ title, stats }) {
 
       <ul class="stat-list">
         {stats.map(({ id, label, percentage }) => {
-          console.log(id);
           return (
             <li class="item" key={id}>
               <span class="label">{label}</span>
@@ -21,7 +20,11 @@ export default function Statistics({ title, stats }) {
 }
 
 Statistics.propTypes = {
-  id: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  percentage: PropTypes.number.isRequired,
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    })
+  ),
 };

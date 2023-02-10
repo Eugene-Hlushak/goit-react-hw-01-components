@@ -4,7 +4,6 @@ export default function FriendList({ friends }) {
   return (
     <ul class="friend-list">
       {friends.map(({ id, avatar, name, isOnline }) => {
-        console.log(id);
         return (
           <li class="item" key={id}>
             <span class="status">{isOnline}</span>
@@ -18,8 +17,12 @@ export default function FriendList({ friends }) {
 }
 
 FriendList.propTypes = {
-  id: PropTypes.number.isRequired,
-  avatar: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  isOnline: PropTypes.bool.isRequired,
+  friends: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      avatar: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      isOnline: PropTypes.bool.isRequired,
+    })
+  ),
 };
