@@ -1,31 +1,41 @@
 import PropTypes from 'prop-types';
-import css from './Profile.module.css';
+import {
+  Container,
+  Box,
+  Avatar,
+  Name,
+  Info,
+  List,
+  ListItem,
+  Label,
+  Quantity,
+} from './Profile.styled';
 
 export default function Profile({ avatar, username, tag, location, stats }) {
   return (
-    <div className={css.profile}>
-      <div className={css.description}>
-        <img src={avatar} alt="User avatar" className="avatar" />
-        <p className={css.name}>{username}</p>
-        <p className={css.tag}>@{tag}</p>
-        <p className={css.location}>{location}</p>
-      </div>
+    <Container>
+      <Box>
+        <Avatar src={avatar} alt="User avatar" />
+        <Name>{username}</Name>
+        <Info>@{tag}</Info>
+        <Info>{location}</Info>
+      </Box>
 
-      <ul className={css.stats}>
-        <li>
-          <span className={css.label}>Followers</span>
-          <span className={css.quantity}>{stats.followers}</span>
-        </li>
-        <li>
-          <span className={css.label}>Views</span>
-          <span className={css.quantity}>{stats.views}</span>
-        </li>
-        <li>
-          <span className={css.label}>Likes</span>
-          <span className={css.quantity}>{stats.likes}</span>
-        </li>
-      </ul>
-    </div>
+      <List>
+        <ListItem>
+          <Label>Followers</Label>
+          <Quantity>{stats.followers}</Quantity>
+        </ListItem>
+        <ListItem>
+          <Label>Views</Label>
+          <Quantity>{stats.views}</Quantity>
+        </ListItem>
+        <ListItem>
+          <Label>Likes</Label>
+          <Quantity>{stats.likes}</Quantity>
+        </ListItem>
+      </List>
+    </Container>
   );
 }
 
